@@ -4,7 +4,7 @@ WORKDIR /var/www
 RUN apk update && \
     yarn global add create-nuxt-app
 
-COPY package*.json ./
+COPY .src/package*.json ./
 RUN yarn install
 
 COPY ./src ./
