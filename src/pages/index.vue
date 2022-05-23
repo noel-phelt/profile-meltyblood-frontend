@@ -1,5 +1,5 @@
 <template>
-  <body class="body">
+  <div class="body">
     <div class="frame">
       <div class="container mx-auto px-2 content">
         <img
@@ -174,7 +174,7 @@
       </div>
       <customFooter></customFooter>
     </div>
-  </body>
+  </div>
 </template>
 <script>
 import modal from "@/components/modal.vue";
