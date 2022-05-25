@@ -1,17 +1,14 @@
 
 <template>
-  <div class="grid grid-cols-2 md:grid-cols-3">
-    <ul>
-      <li
-        v-for="(value, key) in optionSets"
-        :key="key"
-        class="option col-span-1"
-      >
-        <a @click="selectOption(value)">
-          <p class="option-name">{{ value }}</p>
-        </a>
-      </li>
-    </ul>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <button
+      v-for="(value, key) in optionSets"
+      :key="key"
+      class="option"
+      @click="selectOption(value)"
+    >
+      <span class="option-name">{{ value }}</span>
+    </button>
   </div>
 </template>
 <script>
@@ -50,20 +47,17 @@ export default {
 </script>
 <style scoped>
 .option {
-  text-align: center;
-}
-.option-name {
-  color: #cadceb;
-  text-shadow: 0 0 5px white;
-  text-align: center;
+  color: aliceblue;
+  background-color: rgba(93, 93, 93, 0.3);
   font-family: "Noto Serif JP", serif;
+  border: 1px solid hsla(0, 0%, 100%, 0.15);
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px 0px 20px 0px;
 }
-a:not([href]):not([class]) {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-.option:hover .option-name {
-  text-shadow: 0 0 15px white;
+.option:hover {
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
+  text-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
 }
 </style>

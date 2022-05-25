@@ -7,7 +7,7 @@ services:
       - ./src:/src:cached
       - node_modules:/src/node_modules
     working_dir: "/src"
-    # command: yarn dev
+    command: yarn dev
     ports:
       - "3000:3000"
       - "24678:24678"

@@ -1,23 +1,21 @@
 <template>
   <div>
     <div class="modal modal-overlay" @click.self="closeModal" v-show="modal">
-      <transition name="modal">
-        <div class="modal modal-window">
-          <div class="modal-content">
-            <component
-              ref="modalContent"
-              :is="modalType"
-              :modalSet="modalSet"
-              @completeModal="completeModal($event)"
-            ></component>
-          </div>
-          <footer class="modal-footer">
-            <slot name="footer">
-              <button @click="closeModal">Close</button>
-            </slot>
-          </footer>
-        </div>
-      </transition>
+      <div class="modal modal-window md:w-9/12 w-11/12">
+        <component
+          class="modal content"
+          ref="modalContent"
+          :is="modalType"
+          :modalSet="modalSet"
+          @completeModal="completeModal($event)"
+        ></component>
+        <footer class="modal-footer">
+          <slot name="footer">
+            <button class="close-button" @click="closeModal">閉じる</button>
+          </slot>
+        </footer>
+      </div>
+      <!-- </transition> -->
     </div>
   </div>
 </template>
@@ -94,15 +92,22 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .modal-window {
-  background: rgba(0, 4, 59, 0.6);
-  /* width: 90%;
-  height: 90%; */
-  overflow-y: auto;
+  background: rgba(0, 4, 59, 0.9);
+  margin: auto;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
+  /* opacity: 0; */
+  transition: opacity 0.5s, transform 0s 0.5s;
+  /* transform: scale(0); */
+}
+.modal.content {
+  margin: 20px 10px 10px 20px;
+  padding: 40px;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
 }
 
 .modal-enter {
@@ -128,8 +133,21 @@ export default {
 }
 
 .modal-footer {
-  background: #ccc;
   padding: 10px;
   text-align: right;
+}
+.close-button {
+  font-family: "Noto Serif JP", serif;
+  color: aliceblue;
+  /* transform: skew(-10deg); */
+  border: 1px solid hsla(0, 0%, 100%, 0.15);
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  text-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  padding: 15px 60px 15px 60px;
+  margin: 10px 20px 10px 0;
+}
+.close-button:hover {
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
+  text-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
 }
 </style>

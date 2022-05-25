@@ -1,18 +1,21 @@
 
 <template>
-  <div class="grid grid-cols-2 md:grid-cols-3">
-    <ul>
-      <li
-        v-for="(value, key) in characters"
-        :key="key"
-        class="character col-span-1"
-      >
-        <a @click="selectCharacter(value)">
-          <p class="character-name">{{ value.name }}</p>
-          <img id="character_id" :src="value.img" :alt="key" />
-        </a>
-      </li>
-    </ul>
+  <div class="characters">
+    <div class="grid md:grid-cols-3 grid-cols-2 gap-2">
+      <div v-for="(value, key) in characters" :key="key" class="character">
+        <button @click="selectCharacter(value)">
+          <div>
+            <span class="character-name">{{ value.name }} </span>
+            <img
+              class="character-image"
+              id="character_id"
+              :src="value.img"
+              :alt="key"
+            />
+          </div>
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -44,19 +47,24 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+.characters {
+}
 .character {
   text-align: center;
+  margin-bottom: 20px;
 }
 .character-image {
-}
-.character-image img {
+  background-color: rgba(93, 93, 93, 0.3);
+  /* background-color: rgba(201, 201, 201, 0.746); */
 }
 
 .character-name {
+  display: inline-block;
+  height: 50px;
+  text-align: center;
   color: #cadceb;
   text-shadow: 0 0 5px white;
-  text-align: center;
   font-family: "Noto Serif JP", serif;
 }
 a:not([href]):not([class]) {
@@ -65,6 +73,10 @@ a:not([href]):not([class]) {
   cursor: pointer;
 }
 .character:hover .character-name {
-  text-shadow: 0 0 15px white;
+  text-shadow: 0 0 5px white, 0 0 5px white;
+}
+.character:hover .character-image {
+  /* background-color: rgba(201, 201, 201, 0.746); */
+  box-shadow: 0 0 5px white, 0 0 20px #134f9a;
 }
 </style>

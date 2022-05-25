@@ -1,9 +1,15 @@
 
 <template>
-  <div class="grid grid-cols-2 md:grid-cols-3">
-    <div class="col-span-1" v-for="value in checkBoxSets" :key="value.id">
-      <input type="checkbox" v-model="checkedList" :value="value" />
-      <label class="checkBoxArea">
+  <div class="checkboxs grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="checkbox-area" v-for="value in checkBoxSets" :key="value.id">
+      <input
+        class="checkbox"
+        type="checkbox"
+        v-model="checkedList"
+        :value="value"
+        :id="`${modalSet}${value.id}`"
+      />
+      <label class="checkbox-label" :for="`${modalSet}${value.id}`">
         {{ value.name }}
       </label>
     </div>
@@ -53,32 +59,34 @@ export default {
 };
 </script>
 <style scoped>
-.checkBoxArea {
-  text-align: center;
-  background-color: grey;
-  margin: 2%;
+.checkbox-label {
+  display: block;
   cursor: pointer;
+  color: aliceblue;
+  background-color: rgba(93, 93, 93, 0.3);
+  font-family: "Noto Serif JP", serif;
+  border: 1px solid hsla(0, 0%, 100%, 0.15);
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  /* background-color: rgb(165, 165, 165); */
+  text-align: center;
+  font-size: 20px;
+  padding: 20px 0px 20px 0px;
 }
 
 input[type="checkbox"] {
-  /* display: none; */
+  display: none;
 }
 
-.checkBoxArea:hover {
-  background-color: whitesmoke;
+.checkbox-label:hover {
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
+  text-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
 }
-input[type="checkbox"]:checked + .checkBoxArea {
-  background-color: green;
+input[type="checkbox"]:checked + .checkbox-label {
+  background-color: rgb(189, 162, 42);
 }
-.character-name {
-  color: #cadceb;
-  text-shadow: 0 0 5px white;
-  text-align: center;
-  font-family: "Noto Serif JP", serif;
-}
-a:not([href]):not([class]) {
+/* a:not([href]):not([class]) {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-}
+} */
 </style>

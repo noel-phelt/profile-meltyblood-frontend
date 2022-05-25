@@ -88,6 +88,7 @@ export default {};
   height: 400px; /* 横幅を200pxに指定 */
   margin-left: auto;
   margin-right: auto;
+  margin-top: 100px;
   background-color: rgba(0, 4, 59, 0.6);
 }
 .policy-box .title {

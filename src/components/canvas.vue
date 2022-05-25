@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ canvasDataSet.characterImage }}</p>
+    <h1>Preview</h1>
     <canvas
       ref="canvas"
       class="canvasArea"
@@ -8,7 +8,7 @@
       width="1200"
       height="675"
     ></canvas>
-    <div class="canvas-image">
+    <div class="canvas-image md:w-[598px] md:h-[336px] w-full h-full">
       <img id="output" :src="canvasOutput" />
     </div>
   </div>
@@ -150,7 +150,24 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  background: -webkit-linear-gradient(top, aliceblue, #8bb2db);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Noto Serif JP";
+  font-size: 40px;
+  text-align: center;
+  text-shadow: 0 0 5px #a6d5ef;
+  margin-bottom: 10px;
+}
 .canvasArea {
   display: none;
+}
+.canvas-image {
+  margin: auto;
+}
+.canvas-image img {
+  border: 1px solid hsla(0, 0%, 100%, 0.15);
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
 }
 </style>

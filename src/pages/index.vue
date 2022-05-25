@@ -1,5 +1,6 @@
 <template>
-  <div class="body">
+  <div>
+    <background></background>
     <div class="frame">
       <div class="container mx-auto px-2 content">
         <img
@@ -182,6 +183,7 @@ import canvasArea from "@/components/canvas.vue";
 import customFooter from "@/components/footer.vue";
 import save from "@/components/save.vue";
 import policy from "@/components/policy.vue";
+import background from "@/components/background.vue";
 
 export default {
   data() {
@@ -204,6 +206,7 @@ export default {
     customFooter,
     save,
     policy,
+    background,
   },
   methods: {
     updateList(array, index, value) {
@@ -236,16 +239,10 @@ export default {
 </script>
 
 <style scoped>
-.body {
-  background-image: url("@/assets/img/meltyblood_typelumina_background.png");
-  /* background-image: "`${$config.storageURL}/meltyblood_typelumina_background.png`"; */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-}
 .frame {
   background: rgba(0, 4, 59, 0.6);
+  z-index: 100;
+  position: relative;
 }
 h1 {
   background: -webkit-linear-gradient(top, aliceblue, #a6d5ef);

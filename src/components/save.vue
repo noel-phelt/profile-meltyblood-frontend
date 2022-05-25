@@ -1,27 +1,21 @@
 <template>
-  <div>
-    <div class="content md:flex md:space-x-4 space-y-4 md:space-y-0">
-      <button
-        type="submit"
-        class="twitter md:w-5/12 w-10/12"
-        @click="tweetProfile()"
-      >
-        <div class="twitter-content">
-          <img class="logo" :src="`${$staticURL}icon/Twitter_white.png`" />
-          <span>画像をツイートする</span>
-        </div>
-      </button>
-      <button type="submit" class="twitter md:w-5/12 w-10/12">
-        <div class="twitter-content">
-          <img class="logo" :src="`${$staticURL}icon/Twitter_white.png`" />
-          <span>参加者募集</span>
-        </div>
-      </button>
-    </div>
-    <div class="content md:flex">
-      <button class="download" @click="openImageLink()">
-        画像をダウンロードする
-      </button>
+  <div class="content">
+    <button class="download md:w-6/12 w-full" @click="openImageLink()">
+      画像をダウンロードする
+    </button>
+    <button class="twitter md:w-6/12 w-full" @click="tweetProfile()">
+      <div class="twitter-content">
+        <img class="logo" :src="`${$staticURL}icon/Twitter_white.png`" />
+        <span>ハッシュタグつきでツイートする</span>
+      </div>
+    </button>
+    <div>
+      <span class="system-text">
+        プロフィールが完成したら、保存してハッシュタグ<br /><span class="topic"
+          >#メルブラTLプロフィール</span
+        >をつけて共有しましょう 。
+        <br />あなたに興味を持ったプレイヤーと交流するきっかけになるかもしれません。
+      </span>
     </div>
   </div>
 </template>
@@ -59,15 +53,33 @@ export default {
 </script>
 <style scoped>
 .content {
-  justify-content: center;
   text-align: center;
-  margin: 40px 0 40px 0;
+  margin: 100px auto 0 auto;
+}
+.content button {
+  display: block;
+  height: 80px;
+  margin: 40px auto 40px auto;
+}
+.system-text {
+  color: aliceblue;
+  font-family: "Noto Serif JP", serif;
+  text-align: center;
+  font-size: 18px;
+}
+.system-text {
+  color: aliceblue;
+  font-family: "Noto Serif JP", serif;
+  text-align: center;
+  font-size: 18px;
+}
+.system-text .topic {
+  color: #feea10;
 }
 .twitter {
   font-family: "Noto Sans JP", serif;
   color: aliceblue;
   background: rgba(29, 161, 242, 0.6);
-  padding: 20px 10px 20px 10px;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
   box-shadow: 0 0 2px white, 0 0 15px #134f9a;
 }
@@ -84,9 +96,7 @@ export default {
 .download {
   font-family: "Noto Sans JP", serif;
   color: aliceblue;
-  /* background: rgba(29, 161, 242, 0.6); */
   background: rgb(253, 216, 53, 0.6);
-  padding: 15px 60px 15px 60px;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
   box-shadow: 0 0 2px white, 0 0 15px #134f9a;
 }

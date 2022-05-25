@@ -21,7 +21,7 @@ export default {};
 </script>
 <style scoped>
 footer {
-  margin-top: 200px;
+  margin-top: 100px;
   padding-bottom: 30px;
   background-color: black;
 }
