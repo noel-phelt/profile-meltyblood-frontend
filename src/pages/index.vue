@@ -36,12 +36,15 @@
               type="button"
               @click="openModal('modalCharacter')"
             >
-              キャラクターを選択する
+              <span v-if="character.name">
+                {{ character.name }}
+              </span>
+              <span v-else> キャラクターを選択する </span>
             </button>
             <modal
               ref="modalCharacter"
               modalType="modalCharacter"
-              @result="profileImage = $event"
+              @result="character = $event"
             ></modal>
           </div>
           <div class="caption">
@@ -51,13 +54,17 @@
               type="button"
               @click="openModal('communicationTool')"
             >
-              選択する
+              <span v-if="communicationToolValue">
+                {{ communicationToolValue }}
+              </span>
+              <span v-else> 選択する </span>
             </button>
             <modal
               ref="communicationTool"
               modalType="modalCheckBox"
               modalSet="communicationTool"
               @result="communicationToolList = $event"
+              @checkboxes="communicationToolValue = $event"
             ></modal>
           </div>
           <div class="caption">
@@ -67,13 +74,17 @@
               type="button"
               @click="openModal('platform')"
             >
-              選択する
+              <span v-if="platformValue">
+                {{ platformValue }}
+              </span>
+              <span v-else> 選択する </span>
             </button>
             <modal
               ref="platform"
               modalType="modalCheckBox"
               modalSet="platform"
               @result="platformList = $event"
+              @checkboxes="platformValue = $event"
             ></modal>
           </div>
           <div class="caption">
@@ -189,7 +200,7 @@ export default {
   data() {
     return {
       playerName: "",
-      profileImage: "",
+      character: {},
       playTimeWeekend: {},
       playTimeHoriday: {},
       platformList: [],
@@ -198,6 +209,8 @@ export default {
       rank: "",
       history: "",
       resultImage: "",
+      communicationToolValue: "",
+      platformValue: "",
     };
   },
   components: {
@@ -223,7 +236,7 @@ export default {
     canvasDataSet: function () {
       const canvasDataSet = {
         playerName: this.playerName,
-        profileImage: this.profileImage,
+        character: this.character,
         playTimeWeekend: this.playTimeWeekend,
         playTimeHoriday: this.playTimeHoriday,
         platformList: this.platformList,

@@ -31,7 +31,7 @@ export default {
     canvasDataSet: {
       handler: async function () {
         this.ctx.clearRect(0, 0, 1200, 675);
-        await this.drawCard(this.canvasDataSet.profileImage);
+        await this.drawCard();
         await this.drawPlatform();
         await this.drawCommunicationTool();
         this.drawPlayerName();
@@ -46,10 +46,14 @@ export default {
     },
   },
   methods: {
-    async drawCard(path) {
+    async drawCard() {
       const image = new Image();
       image.crossOrigin = "anonymous";
-      image.src = path === "" ? this.$DEFAULT_PROFILE_CARD : path;
+      if (Object.keys(this.canvasDataSet.character).length !== 0) {
+        image.src = this.canvasDataSet.character.card;
+      } else {
+        image.src = this.$DEFAULT_PROFILE_CARD;
+      }
       await new Promise((resolve) => {
         image.onload = () => resolve(image);
       });

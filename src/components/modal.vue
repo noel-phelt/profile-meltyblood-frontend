@@ -62,11 +62,15 @@ export default {
 
     completeModal(result) {
       switch (this.modalType) {
-        case "modalCharacter": //{1: "遠野"}
-          this.$emit("result", result.card);
+        case "modalCharacter":
+          this.$emit("result", result);
           break;
         case "modalCheckBox":
           this.$emit("result", result);
+          const checkboxButtonName = result
+            .map((object) => object.name)
+            .join(" ");
+          this.$emit("checkboxes", checkboxButtonName);
           break;
         case "modalSelect":
           this.$emit("result", result);
@@ -148,6 +152,5 @@ export default {
 }
 .close-button:hover {
   box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
-  text-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
 }
 </style>

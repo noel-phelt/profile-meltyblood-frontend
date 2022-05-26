@@ -79,14 +79,8 @@ input[type="checkbox"] {
 
 .checkbox-label:hover {
   box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
-  text-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
 }
 input[type="checkbox"]:checked + .checkbox-label {
   background-color: rgb(189, 162, 42);
 }
-/* a:not([href]):not([class]) {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-} */
 </style>

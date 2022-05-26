@@ -1,7 +1,7 @@
 
 <template>
   <div class="characters">
-    <div class="grid md:grid-cols-3 grid-cols-2 gap-2">
+    <div class="grid md:grid-cols-3 grid-cols-1 gap-2">
       <div v-for="(value, key) in characters" :key="key" class="character">
         <button @click="selectCharacter(value)">
           <div>
