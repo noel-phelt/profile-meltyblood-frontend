@@ -37,8 +37,8 @@ export default {
         this.drawPlayerName();
         this.drawPlayTime();
         this.drawStyle();
-        this.drawRank();
-        this.drawHistory();
+        this.drawSelectName(this.canvasDataSet.rank.name, 409, 321);
+        this.drawSelectName(this.canvasDataSet.history.name, 503, 607);
         this.canvasOutput = this.$refs.canvas.toDataURL("image/png");
         this.$emit("resultImage", this.canvasOutput);
       },
@@ -63,25 +63,28 @@ export default {
       this.ctx.fillText(this.canvasDataSet.playerName, 31, 191);
     },
     drawPlayTime() {
-      if (Object.keys(this.canvasDataSet.playTimeWeekend).length !== 0) {
+      if (this.canvasDataSet.playTimeWeekend.name) {
         this.ctx.fillText("平日", 584, 176);
-        this.ctx.fillText(this.canvasDataSet.playTimeWeekend, 584, 215);
+        this.ctx.fillText(this.canvasDataSet.playTimeWeekend.name, 584, 215);
       }
-      if (Object.keys(this.canvasDataSet.playTimeHoriday).length !== 0) {
+      if (this.canvasDataSet.playTimeHoriday.name) {
         this.ctx.fillText("休日", 584, 281);
-        this.ctx.fillText(this.canvasDataSet.playTimeHoriday, 584, 318);
+        this.ctx.fillText(this.canvasDataSet.playTimeHoriday.name, 584, 318);
       }
     },
     drawStyle() {
-      this.ctx.fillText(this.canvasDataSet.styleList[0], 36, 335);
-      this.ctx.fillText(this.canvasDataSet.styleList[1], 36, 397);
-      this.ctx.fillText(this.canvasDataSet.styleList[2], 36, 460);
+      this.drawSelectName(this.canvasDataSet.styleList[0].name, 36, 335);
+      this.drawSelectName(this.canvasDataSet.styleList[1].name, 36, 397);
+      this.drawSelectName(this.canvasDataSet.styleList[2].name, 36, 460);
     },
-    drawRank() {
-      this.ctx.fillText(this.canvasDataSet.rank, 409, 321);
-    },
-    drawHistory() {
-      this.ctx.fillText(this.canvasDataSet.history, 503, 607);
+    drawSelectName(select, x, y) {
+      let displaySelectName;
+      if (select) {
+        displaySelectName = select;
+      } else {
+        displaySelectName = "";
+      }
+      this.ctx.fillText(displaySelectName, x, y);
     },
     async drawPlatform() {
       await Promise.all(

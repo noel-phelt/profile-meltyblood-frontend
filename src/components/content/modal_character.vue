@@ -2,7 +2,12 @@
 <template>
   <div class="characters">
     <div class="grid md:grid-cols-3 grid-cols-1 gap-2">
-      <div v-for="(value, key) in characters" :key="key" class="character">
+      <div
+        v-for="(value, key) in characters"
+        :key="key"
+        class="character"
+        :class="{ selected: value === character }"
+      >
         <button @click="selectCharacter(value)">
           <div>
             <span class="character-name">{{ value.name }} </span>
@@ -48,15 +53,13 @@ export default {
 };
 </script>
 <style scoped>
-.characters {
-}
 .character {
   text-align: center;
   margin-bottom: 20px;
 }
 .character-image {
-  background-color: rgba(93, 93, 93, 0.3);
-  /* background-color: rgba(201, 201, 201, 0.746); */
+  /* background-color: rgba(93, 93, 93, 0.3); */
+  border-radius: 0;
 }
 
 .character-name {
@@ -76,7 +79,12 @@ a:not([href]):not([class]) {
   text-shadow: 0 0 5px white, 0 0 5px white;
 }
 .character:hover .character-image {
-  /* background-color: rgba(201, 201, 201, 0.746); */
-  box-shadow: 0 0 5px white, 0 0 20px #134f9a;
+  filter: drop-shadow(0 0 3px white) drop-shadow(0 0 15px #134f9a);
+}
+.character.selected .character-image {
+  filter: drop-shadow(0 0 3px white) drop-shadow(0 0 15px #134f9a);
+}
+.character.selected .character-name {
+  text-shadow: 0 0 5px white, 0 0 5px white;
 }
 </style>

@@ -66,8 +66,7 @@ export default {
   background-color: rgba(93, 93, 93, 0.3);
   font-family: "Noto Serif JP", serif;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
-  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
-  /* background-color: rgb(165, 165, 165); */
+  /* box-shadow: 0 0 2px white, 0 0 15px #134f9a; */
   text-align: center;
   font-size: 20px;
   padding: 20px 0px 20px 0px;
@@ -78,9 +77,12 @@ input[type="checkbox"] {
 }
 
 .checkbox-label:hover {
-  box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
 }
 input[type="checkbox"]:checked + .checkbox-label {
-  background-color: rgb(189, 162, 42);
+  text-shadow: 0 0 5px white;
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  background-color: rgba(181, 181, 181, 0.3);
+  /* background-color: rgb(189, 162, 42); */
 }
 </style>

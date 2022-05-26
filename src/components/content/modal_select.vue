@@ -2,12 +2,13 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <button
-      v-for="(value, key) in optionSets"
-      :key="key"
+      v-for="value in optionSets"
+      :key="value.id"
+      :class="{ selected: value === option }"
       class="option"
       @click="selectOption(value)"
     >
-      <span class="option-name">{{ value }}</span>
+      <span class="option-name">{{ value.name }}</span>
     </button>
   </div>
 </template>
@@ -51,12 +52,18 @@ export default {
   background-color: rgba(93, 93, 93, 0.3);
   font-family: "Noto Serif JP", serif;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
-  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
   text-align: center;
   font-size: 20px;
   padding: 20px 0px 20px 0px;
 }
 .option:hover {
-  box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
+  text-shadow: 0 0 5px white;
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  background-color: rgba(181, 181, 181, 0.3);
+}
+.option.selected {
+  text-shadow: 0 0 5px white;
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  background-color: rgba(181, 181, 181, 0.3);
 }
 </style>

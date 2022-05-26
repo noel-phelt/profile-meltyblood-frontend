@@ -13,14 +13,12 @@ export default {};
 .bg {
   background: url("@/assets/img/meltyblood_typelumina_background.png") top
     no-repeat;
-  background-size: cover;
-  top: 0;
   width: 100%;
-  height: 100%;
-  height: -webkit-fill-available;
+  background-size: cover;
+  height: 100vh;
   position: fixed;
 }
-.line-box {
+/* .line-box {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -38,6 +36,6 @@ export default {};
   -webkit-box-shadow: 0 0 20px #3792f9;
   box-shadow: 0 0 20px #3792f9;
   pointer-events: none;
-}
+} */
 </style>
 

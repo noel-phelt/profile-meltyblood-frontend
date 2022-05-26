@@ -1,12 +1,22 @@
-const rank = {
-  1: "Sランク",
-  2: "Aランク",
-  3: "Bランク",
-  4: "Cランク",
-  5: "Dランク",
-  6: "Eランク",
-  7: "Fランク",
-}
+const rankArray = [
+  "Sランク",
+  "Aランク",
+  "Bランク",
+  "Cランク",
+  "Dランク",
+  "Eランク",
+  "Fランク",
+]
+
+const rank = rankArray.map(
+  (value, index) =>
+  (
+    {
+      id: index + 1,
+      name: value,
+    }
+  )
+)
 
 export {
   rank

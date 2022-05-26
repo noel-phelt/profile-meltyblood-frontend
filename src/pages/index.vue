@@ -97,7 +97,10 @@
                   type="button"
                   @click="openModal('playTimeWeekend')"
                 >
-                  選択する
+                  <span v-if="playTimeWeekend.name">
+                    {{ playTimeWeekend.name }}
+                  </span>
+                  <span v-else> 選択する </span>
                 </button>
               </div>
               <modal
@@ -113,7 +116,10 @@
                   type="button"
                   @click="openModal('playTimeHoriday')"
                 >
-                  選択する
+                  <span v-if="playTimeHoriday.name">
+                    {{ playTimeHoriday.name }}
+                  </span>
+                  <span v-else> 選択する </span>
                 </button>
                 <modal
                   ref="playTimeHoriday"
@@ -133,7 +139,10 @@
                   type="button"
                   @click="openArrayModal('styles', index - 1)"
                 >
-                  選択する
+                  <span v-if="styleList[index - 1].name">
+                    {{ styleList[index - 1].name }}
+                  </span>
+                  <span v-else> 選択する </span>
                 </button>
                 <modal
                   ref="styles"
@@ -151,7 +160,10 @@
               type="button"
               @click="openModal('rank')"
             >
-              選択する
+              <span v-if="rank.name">
+                {{ rank.name }}
+              </span>
+              <span v-else> 選択する </span>
             </button>
             <modal
               ref="rank"
@@ -167,7 +179,10 @@
               type="button"
               @click="openModal('history')"
             >
-              選択する
+              <span v-if="history.name">
+                {{ history.name }}
+              </span>
+              <span v-else> 選択する </span>
             </button>
             <modal
               ref="history"
@@ -205,9 +220,9 @@ export default {
       playTimeHoriday: {},
       platformList: [],
       communicationToolList: [],
-      styleList: ["", "", ""],
-      rank: "",
-      history: "",
+      styleList: [{}, {}, {}],
+      rank: {},
+      history: {},
       resultImage: "",
       communicationToolValue: "",
       platformValue: "",
