@@ -1,7 +1,7 @@
 const title = "MELTY BLOOD: TYPE LUMINA（メルティブラッド：タイプルミナ）自己紹介カードメーカー"
 const description = 'メルブラTLであなただけの自己紹介カードを作成してSNSでアピールできます。\
 同じプラットフォームやプレイスタイルの近い相手を見つけて交流しましょう。'
-const ogURL = "https://profile.meltyblood-typelumina-fan.com/"
+const ogURL = "https://profile.meltyblood-typelumina-fan.com"
 const ogImage = "https://file.meltyblood-typelumina-fan.com/site_image/ogp.jpeg"
 
 export default {
@@ -52,6 +52,10 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'nuxt-webfontloader',
+    '@nuxtjs/google-gtag', {
+      id: 'G-F2PPS3JJGC',
+      debug: false,
+    }
   ],
 
   webfontloader: {
