@@ -1,6 +1,6 @@
 const title = "MELTY BLOOD: TYPE LUMINA（メルティブラッド：タイプルミナ）自己紹介カードメーカー"
-const description = '  \
-'
+const description = 'メルブラTLであなただけの自己紹介カードを作成してSNSでアピールできます。\
+同じプラットフォームやプレイスタイルの近い相手を見つけて交流しましょう。'
 const ogURL = "https://profile-meltyblood-frontend-fetp54ftca-an.a.run.app"
 const ogImage = "https://file.meltyblood-typelumina-fan.com/site_image/ogp.jpeg"
 
@@ -14,12 +14,12 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: description },
       { hid: 'og:site_name', property: 'og:site_name', content: title },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:url', property: 'og:url', content: ogURL },
       { hid: 'og:title', property: 'og:title', content: title },
-      { hid: 'og:description', property: 'og:description', content: '共通ディスクリプション' },
+      { hid: 'og:description', property: 'og:description', content: description },
       { hid: 'og:image', property: 'og:image', content: ogImage },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'format-detection', content: 'telephone=no' }

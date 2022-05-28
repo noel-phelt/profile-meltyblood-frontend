@@ -51,7 +51,7 @@ export default {
       win.document.write(winHtml);
     },
     tweetProfile() {
-      const url = `https://twitter.com/intent/tweet?text=%0a%23${serviceTag}`;
+      const url = `https://twitter.com/intent/tweet?text=%23${serviceTag}`;
       window.open(url);
     },
   },
