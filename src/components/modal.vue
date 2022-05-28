@@ -10,11 +10,11 @@
           @completeModal="completeModal($event)"
         ></component>
         <footer class="modal-footer">
-          <button class="clear w-5/12 md:w-[150px]" @click="clear">
-            未選択にする
-          </button>
           <button class="close w-5/12 md:w-[150px]" @click="closeModal">
             閉じる
+          </button>
+          <button class="clear w-5/12 md:w-[150px]" @click="clear">
+            未選択にする
           </button>
         </footer>
       </div>
@@ -153,7 +153,7 @@ footer button {
   box-shadow: 0 0 2px white, 0 0 15px #134f9a;
   text-shadow: 0 0 2px white, 0 0 15px #134f9a;
   color: aliceblue;
-  padding: 15px 0px 15px 0px;
+  padding: 10px 0px 10px 0px;
   /* margin: 10px 5px 10px 0; */
   margin: 10px 20px 10px auto;
   font-family: "Noto Serif JP", serif;

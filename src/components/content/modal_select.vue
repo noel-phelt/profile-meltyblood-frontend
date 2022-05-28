@@ -43,6 +43,9 @@ export default {
     completeModal() {
       this.$emit("completeModal", this.option);
     },
+    clearContent() {
+      this.option = {};
+    },
   },
 };
 </script>

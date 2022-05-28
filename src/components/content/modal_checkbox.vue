@@ -55,6 +55,9 @@ export default {
     completeModal() {
       this.$emit("completeModal", this.checkedListSorted);
     },
+    clearContent() {
+      this.checkedList = [];
+    },
   },
 };
 </script>
