@@ -11,10 +11,12 @@
     </button>
     <div>
       <span class="system-text">
-        プロフィールが完成したら、 保存して ハッシュタグ<br /><span
-          class="topic"
+        プロフィールが完成したら、
+        <br class="md:hidden" />
+        保存して ハッシュタグ<br /><span class="topic"
           >#メルブラTLプロフィール</span
         >
+        <br class="md:hidden" />
         をつけて共有しましょう 。
         <br />あなたに興味を持ったプレイヤーと
         <br class="md:hidden" />
@@ -49,7 +51,7 @@ export default {
       win.document.write(winHtml);
     },
     tweetProfile() {
-      const url = `https://twitter.com/intent/tweet?text=%23${serviceTag}`;
+      const url = `https://twitter.com/intent/tweet?text=%0a%23${serviceTag}`;
       window.open(url);
     },
   },

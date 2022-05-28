@@ -10,10 +10,12 @@
           @completeModal="completeModal($event)"
         ></component>
         <footer class="modal-footer">
-          <slot name="footer">
-            <button class="clear" @click="clear">未選択にする</button>
-            <button class="close" @click="closeModal">閉じる</button>
-          </slot>
+          <button class="clear w-5/12 md:w-[150px]" @click="clear">
+            未選択にする
+          </button>
+          <button class="close w-5/12 md:w-[150px]" @click="closeModal">
+            閉じる
+          </button>
         </footer>
       </div>
       <!-- </transition> -->
@@ -143,18 +145,17 @@ export default {
 
 .modal-footer {
   padding: 10px;
-  text-align: right;
 }
 
 footer button {
-  display: inline-block;
+  display: block;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
   box-shadow: 0 0 2px white, 0 0 15px #134f9a;
   text-shadow: 0 0 2px white, 0 0 15px #134f9a;
   color: aliceblue;
   padding: 15px 0px 15px 0px;
-  margin: 10px 20px 10px 0;
-  width: 150px;
+  /* margin: 10px 5px 10px 0; */
+  margin: 10px 20px 10px auto;
   font-family: "Noto Serif JP", serif;
 }
 footer button:hover {

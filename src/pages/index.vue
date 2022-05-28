@@ -25,7 +25,12 @@
         <div class="">
           <h2 class="subtitle">自己紹介カードを生成する</h2>
           <div class="caption">
-            <h3 class="single">プレイヤーネーム（20文字以内）</h3>
+            <h3 class="single">
+              プレイヤーネーム
+
+              <br class="md:hidden" />
+              （20文字以内）
+            </h3>
             <input
               class="textbox md:w-8/12 w-full"
               id="player_name"
@@ -55,7 +60,11 @@
             ></modal>
           </div>
           <div class="caption">
-            <h3 class="single">コミュニケーションツール（複数回答可）</h3>
+            <h3 class="single">
+              コミュニケーションツール
+              <br class="md:hidden" />
+              （複数回答可）
+            </h3>
             <button
               class="select-button md:w-6/12 w-10/12"
               type="button"
@@ -75,7 +84,12 @@
             ></modal>
           </div>
           <div class="caption">
-            <h3 class="single">プレイするハード（複数回答可）</h3>
+            <h3 class="single">
+              プレイするハード
+
+              <br class="md:hidden" />
+              （複数回答可）
+            </h3>
             <button
               class="select-button md:w-6/12 w-10/12"
               type="button"

@@ -21,7 +21,7 @@ export default {
       { hid: 'og:title', property: 'og:title', content: title },
       { hid: 'og:description', property: 'og:description', content: '共通ディスクリプション' },
       { hid: 'og:image', property: 'og:image', content: ogImage },
-      { name: 'twitter:card', content: 'summary' },
+      { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
