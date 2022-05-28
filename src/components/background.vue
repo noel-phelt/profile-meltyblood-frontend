@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="bg-color"></div>
     <div class="bg"></div>
     <div class="line-box" style="transform: translateY(0px)">
       <div :class="`l${i}`" v-for="i in 4" :key="i"></div>
@@ -17,6 +18,13 @@ export default {};
   background-size: cover;
   height: 100vh;
   position: fixed;
+}
+.bg-color {
+  background: rgba(0, 4, 59, 0.6);
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 90;
 }
 /* .line-box {
   width: 100%;

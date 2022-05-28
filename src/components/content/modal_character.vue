@@ -49,6 +49,9 @@ export default {
     completeModal() {
       this.$emit("completeModal", this.character);
     },
+    clearContent() {
+      this.character = {};
+    },
   },
 };
 </script>

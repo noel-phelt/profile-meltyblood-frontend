@@ -1,3 +1,7 @@
+const title = "MELTY BLOOD: TYPE LUMINA（メルティブラッド：タイプルミナ）自己紹介カードメーカー"
+const description = '  \
+'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -9,6 +13,13 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
+      { hid: 'og:site_name', property: 'og:site_name', content: title },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:url', property: 'og:url', content: process.env.SITE_URL },
+      { hid: 'og:title', property: 'og:title', content: title },
+      { hid: 'og:description', property: 'og:description', content: '共通ディスクリプション' },
+      { hid: 'og:image', property: 'og:image', content: process.env.SITE_OGP_IMAGE },
+      { name: 'twitter:card', content: 'summary' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [

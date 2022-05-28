@@ -11,7 +11,8 @@
         ></component>
         <footer class="modal-footer">
           <slot name="footer">
-            <button class="close-button" @click="closeModal">閉じる</button>
+            <button class="clear" @click="clear">未選択にする</button>
+            <button class="close" @click="closeModal">閉じる</button>
           </slot>
         </footer>
       </div>
@@ -59,6 +60,9 @@ export default {
       this.$refs.modalContent.completeModal();
       this.modal = false;
     },
+    clear() {
+      this.$refs.modalContent.clearContent();
+    },
 
     completeModal(result) {
       switch (this.modalType) {
@@ -102,6 +106,7 @@ export default {
 .modal-window {
   background: rgba(0, 4, 59, 0.9);
   margin: auto;
+  max-width: 1000px;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
   /* opacity: 0; */
   transition: opacity 0.5s, transform 0s 0.5s;
@@ -140,17 +145,19 @@ export default {
   padding: 10px;
   text-align: right;
 }
-.close-button {
-  font-family: "Noto Serif JP", serif;
-  color: aliceblue;
-  /* transform: skew(-10deg); */
+
+footer button {
+  display: inline-block;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
   box-shadow: 0 0 2px white, 0 0 15px #134f9a;
   text-shadow: 0 0 2px white, 0 0 15px #134f9a;
-  padding: 15px 60px 15px 60px;
+  color: aliceblue;
+  padding: 15px 0px 15px 0px;
   margin: 10px 20px 10px 0;
+  width: 150px;
+  font-family: "Noto Serif JP", serif;
 }
-.close-button:hover {
+footer button:hover {
   box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
 }
 </style>

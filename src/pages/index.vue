@@ -2,17 +2,23 @@
   <div>
     <background></background>
     <div class="frame">
-      <div class="container mx-auto px-2 content">
+      <div class="container mx-auto px-2 md:w-[1000px]">
         <img
           class="title-logo"
           :src="`${$config.storageURL}/meltyblood_typelumina_logo02_neg.png`"
           alt="MELTY BLOOD: TYPE LUMINA"
         />
-        <h1 class="title">メルブラTL自己紹介 カードメーカー</h1>
+        <h1 class="title">
+          メルブラTL<br class="md:hidden" />自己紹介カードメーカー
+        </h1>
         <div class="text-center">
           <p class="description system-text">
-            あなたの自己紹介カードを作ってSNSやコミュニティでアピールしよう！<br />
-            自分に合ったプレイ環境や好みを画像で分かりやすく共有できる。<br />
+            あなたの自己紹介カードを作って
+            <br class="md:hidden" />
+            SNSやコミュニティでアピールしよう！<br />
+            自分に合ったプレイ環境や好みを<br
+              class="md:hidden"
+            />画像で分かりやすく共有できる。<br />
             SNSに投稿したり対戦募集に使用すれば共に遊ぶ仲間が見つかる＆見つけられる！<br />
           </p>
         </div>
@@ -26,6 +32,7 @@
               type="text"
               placeholder="名前を入力してください"
               v-model.lazy="playerName"
+              maxlength="20"
               autocomplete="off"
             />
           </div>
@@ -133,7 +140,7 @@
           <div class="caption">
             <h3 class="single">スタイル</h3>
             <div class="md:flex md:space-x-4 md:space-y-0space-y-3.5">
-              <div class="md:w-3/12 w-10/12" v-for="index in 3" :key="index">
+              <div class="md:w-4/12 w-10/12" v-for="index in 3" :key="index">
                 <button
                   class="select-button md:w-full w-10/12"
                   type="button"
@@ -268,7 +275,7 @@ export default {
 
 <style scoped>
 .frame {
-  background: rgba(0, 4, 59, 0.6);
+  /* background: rgba(0, 4, 59, 0.6); */
   z-index: 100;
   position: relative;
 }
@@ -297,19 +304,19 @@ h3.multi {
   font-size: 20px;
 }
 .textbox {
-  border: 2px solid hsla(0, 0%, 100%, 0.15);
+  border: 1px solid hsla(0, 0%, 100%, 0.15);
   padding: 15px 60px 15px 60px;
   background-color: rgba(0, 4, 59, 0.6);
   color: #cadceb;
-  text-shadow: 0 0 3px aqua;
+  /* text-shadow: 0 0 2px aqua; */
   font-family: "Noto Sans JP", sans-serif;
 }
 .textbox:focus {
-  border: 2px solid rgba(211, 87, 104, 0.9);
   /* box-shadow: 0 0 5px 0 rgba(211, 87, 104, 0.6); */
   outline: none;
+  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
 }
-.content {
+.container {
   height: 100%;
 }
 .select-button {
