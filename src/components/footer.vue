@@ -11,6 +11,12 @@
             rel="noopener noreferrer"
             >問い合わせ</a
           >
+          <a
+            href="https://twitter.com/noel_phelt"
+            target="_blank"
+            rel="noopener noreferrer"
+            >作成者</a
+          >
         </li>
       </ul>
     </footer>
@@ -36,7 +42,7 @@ footer ul li {
   display: inline;
 }
 
-footer p {
-  text-align: center;
+footer a {
+  margin: 20px;
 }
 </style>

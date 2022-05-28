@@ -47,7 +47,7 @@ export default {
               <img src="${this.image}" style="width: 100%; max-width: 1200px;" alt="">
           </body>
       </html>`;
-      const win = window.open();
+      const win = window.open("about:blank");
       win.document.write(winHtml);
     },
     tweetProfile() {
