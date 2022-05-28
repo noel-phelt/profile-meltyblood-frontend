@@ -43,8 +43,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -52,15 +52,18 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'nuxt-webfontloader',
-    '@nuxtjs/google-gtag', {
-      id: 'G-F2PPS3JJGC',
-      debug: false,
-    }
   ],
 
   webfontloader: {
     google: {
       families: ['Lato:400,700', 'Noto+Sans+JP:400,700']
+    }
+  },
+  googleAnalytics: {
+    id: 'G-F2PPS3JJGC',
+    debug: {
+      enabled: false,
+      sendHitTask: false
     }
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
