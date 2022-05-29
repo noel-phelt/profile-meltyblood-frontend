@@ -15,9 +15,9 @@
         <br class="md:hidden" />
         保存して ハッシュタグ<br /><span class="topic"
           >#メルブラTLプロフィール</span
-        >
+        >と
         <br class="md:hidden" />
-        をつけて共有しましょう 。
+        一緒に画像を添付して共有しましょう 。
         <br />あなたに興味を持ったプレイヤーと
         <br class="md:hidden" />
         交流するきっかけになるかもしれません。

@@ -13,7 +13,9 @@
         </h1>
         <div class="text-center">
           <p class="description system-text">
-            メルブラTLであなただけの自己紹介カードを作成してSNSでアピールできます。
+            メルブラTLであなただけの自己紹介カードを作成して
+            <br class="md:hidden" />
+            SNSでアピールできます。
             <br />
             同じプラットフォームやプレイスタイルの近い相手を見つけて交流しましょう。
           </p>
