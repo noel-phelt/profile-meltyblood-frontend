@@ -44,7 +44,6 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -52,20 +51,24 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     'nuxt-webfontloader',
+    '@nuxtjs/google-gtag',
   ],
-
   webfontloader: {
     google: {
       families: ['Lato:400,700', 'Noto+Sans+JP:400,700']
     }
   },
-  googleAnalytics: {
+  'google-gtag': {
     id: 'G-F2PPS3JJGC',
-    debug: {
-      enabled: false,
-      sendHitTask: false
-    }
+    debug: false,
   },
+  // googleAnalytics: {
+  //   id: 'G-F2PPS3JJGC',
+  //   debug: {
+  //     enabled: false,
+  //     sendHitTask: false
+  //   }
+  // },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
