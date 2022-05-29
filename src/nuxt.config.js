@@ -81,6 +81,7 @@ export default {
   },
 
   publicRuntimeConfig: {
+    siteURL: process.env.SITE_URL,
     storageURL: process.env.STORAGE_URL,
   },
 }

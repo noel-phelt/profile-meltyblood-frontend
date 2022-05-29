@@ -18,7 +18,7 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - API_DOMAIN="localhost:80"
       - STORAGE_URL=https://file.meltyblood-typelumina-fan.com
-      - SITE_URL=localhost
+      - SITE_URL=https://profile.meltyblood-typelumina-fan.com
       - SITE_OGP_IMAGE=https://file.meltyblood-typelumina-fan.com/site_image/ogp.jpeg
     networks:
       - nuxt
