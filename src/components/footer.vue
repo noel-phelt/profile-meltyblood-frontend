@@ -13,7 +13,9 @@
             >
           </li>
         </ul>
-        <p>本サービスで使用されている画像の一部はTYPE-MOONに帰属します。</p>
+        <p>
+          本サービスで使用されている画像の一部の権利はTYPE-MOONに帰属します。
+        </p>
         <p>©TYPE-MOON / Project LUMINA</p>
       </div>
     </footer>
