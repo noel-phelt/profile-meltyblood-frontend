@@ -2,17 +2,20 @@
 <template>
   <div>
     <footer>
-      <p>Author: Hege Refsnes</p>
-      <ul>
-        <li>
-          <a
-            href="https://forms.gle/AP3wU85928jpajna7"
-            target="_blank"
-            rel="noopener noreferrer"
-            >問い合わせ</a
-          >
-        </li>
-      </ul>
+      <div class="content">
+        <ul>
+          <li>
+            <a
+              href="https://forms.gle/AP3wU85928jpajna7"
+              target="_blank"
+              rel="noopener noreferrer"
+              >問い合わせ</a
+            >
+          </li>
+        </ul>
+        <p>本サービスで使用されている画像の一部はTYPE-MOONに帰属します。</p>
+        <p>©TYPE-MOON / Project LUMINA</p>
+      </div>
     </footer>
   </div>
 </template>
@@ -22,8 +25,19 @@ export default {};
 <style scoped>
 footer {
   margin-top: 100px;
-  padding-bottom: 30px;
+  height: 100px;
   background-color: black;
+  overflow: hidden;
+  display: flex;
+}
+
+footer .content {
+  margin: auto auto 5px auto;
+}
+
+footer p {
+  text-align: center;
+  color: aliceblue;
 }
 
 footer ul {
@@ -32,11 +46,7 @@ footer ul {
 }
 
 footer ul li {
-  padding: 0 4px;
-  display: inline;
-}
-
-footer a {
-  margin: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 </style>
