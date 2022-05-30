@@ -27,14 +27,14 @@ export default {};
 <style scoped>
 footer {
   margin-top: 100px;
-  height: 100px;
+  height: 150px;
   background-color: black;
   overflow: hidden;
   display: flex;
 }
 
 footer .content {
-  margin: auto auto 5px auto;
+  margin: auto auto 50px auto;
 }
 
 footer p {

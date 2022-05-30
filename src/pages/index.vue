@@ -14,7 +14,6 @@
         <div class="text-center">
           <p class="description system-text">
             メルブラTLであなただけの自己紹介カードを作成して
-            <br class="md:hidden" />
             SNSでアピールできます。
             <br />
             同じプラットフォームやプレイスタイルの近い相手を見つけて交流しましょう。
@@ -216,6 +215,7 @@
           @resultImage="resultImage = $event"
         ></canvasArea>
         <save :image="resultImage"></save>
+        <timeline></timeline>
         <policy></policy>
       </div>
       <customFooter></customFooter>
@@ -228,6 +228,7 @@ import canvasArea from "@/components/canvas.vue";
 import customFooter from "@/components/footer.vue";
 import save from "@/components/save.vue";
 import policy from "@/components/policy.vue";
+import timeline from "@/components/timeline.vue";
 import background from "@/components/background.vue";
 
 export default {
@@ -253,6 +254,7 @@ export default {
     customFooter,
     save,
     policy,
+    timeline,
     background,
   },
   methods: {
