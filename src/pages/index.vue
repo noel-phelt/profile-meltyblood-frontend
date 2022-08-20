@@ -215,7 +215,6 @@
           @resultImage="resultImage = $event"
         ></canvasArea>
         <save :image="resultImage"></save>
-        <timeline></timeline>
         <policy></policy>
       </div>
       <customFooter></customFooter>
