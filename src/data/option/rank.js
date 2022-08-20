@@ -1,4 +1,5 @@
 const rankArray = [
+  "Exランク",
   "S+ランク",
   "Sランク",
   "A+ランク",

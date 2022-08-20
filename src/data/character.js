@@ -21,6 +21,8 @@ export default function (baseURL) {
     "蒼崎青子",
     "マーリオゥ・ジャーロ・ベスティーノ",
     "完全武装シエル",
+    "ネコアルク",
+    "マシュ・キリエライト",
   ]
 
   const characters = characterArray.map(
