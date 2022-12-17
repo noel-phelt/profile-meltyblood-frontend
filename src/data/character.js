@@ -23,6 +23,8 @@ export default function (baseURL) {
     "完全武装シエル",
     "ネコアルク",
     "マシュ・キリエライト",
+    "牛若丸",
+    "巌窟王",
   ]
 
   const characters = characterArray.map(
