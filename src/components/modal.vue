@@ -7,6 +7,8 @@
           ref="modalContent"
           :is="modalType"
           :modalSet="modalSet"
+          :contentValue="contentValue"
+          :contentList="contentList"
           @completeModal="completeModal($event)"
         ></component>
         <footer class="modal-footer">
@@ -36,6 +38,16 @@ export default {
     modalSet: {
       type: String,
       default: "",
+    },
+    contentValue: {
+      type: Number,
+      default: null,
+    },
+    contentList: {
+      type: Array,
+      default: () => {
+        [];
+      },
     },
   },
   components: {
@@ -149,16 +161,18 @@ export default {
 
 footer button {
   display: block;
-  border: 1px solid hsla(0, 0%, 100%, 0.15);
-  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
-  text-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  box-shadow: 0 0 10px rgba(19, 79, 154, 0.5);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   color: aliceblue;
   padding: 10px 0px 10px 0px;
-  /* margin: 10px 5px 10px 0; */
   margin: 10px 20px 10px auto;
   font-family: "Noto Serif JP", serif;
+  transition: all 0.3s ease;
 }
 footer button:hover {
-  box-shadow: 0 0 2px white, 0 0 15px #134f9a, 0 0 2px white, 0 0 15px #134f9a;
+  box-shadow: 0 0 10px white, 0 0 25px #37b7ff;
+  background: linear-gradient(135deg, transparent, rgba(138, 43, 226, 0.2));
+  transform: translateY(-1px);
 }
 </style>
