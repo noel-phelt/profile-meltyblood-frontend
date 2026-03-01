@@ -4,14 +4,15 @@ services:
   app:
     build: .
     volumes:
-      - ./src:/src:cached
-      - node_modules:/src/node_modules
-    working_dir: "/src"
-    # command: yarn dev
+      - ./src:/var/www:cached
+      - node_modules:/var/www/node_modules
+    working_dir: "/var/www"
+    tty: true
+    stdin_open: true
+    command: yarn dev
     ports:
       - "3000:3000"
       - "24678:24678"
-    tty: true
     environment:
       - HOST=0.0.0.0
       - PORT=3000
