@@ -12,7 +12,7 @@
           メルブラTL<br class="md:hidden" />自己紹介カードメーカー
         </h1>
         <div class="text-center">
-          <p class="description system-text">
+          <p class="description system-text lumina-text">
             メルブラTLであなただけの自己紹介カードを作成して
             SNSでアピールできます。
             <br />
@@ -321,13 +321,13 @@ h3.multi {
   padding: 15px 60px 15px 60px;
   background-color: rgba(0, 4, 59, 0.6);
   color: #cadceb;
-  /* text-shadow: 0 0 2px aqua; */
   font-family: "Noto Sans JP", sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .textbox:focus {
-  /* box-shadow: 0 0 5px 0 rgba(211, 87, 104, 0.6); */
   outline: none;
-  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
+  box-shadow: 0 0 5px white, 0 0 20px #37b7ff; /* mb-blue-bright */
+  border-color: #37b7ff;
 }
 .container {
   height: 100%;
@@ -335,18 +335,28 @@ h3.multi {
 .select-button {
   font-family: "Noto Sans JP", serif;
   color: aliceblue;
-  background-color: rgba(211, 87, 104, 0.6);
-  /* transform: skew(-10deg); */
-  border: 1px solid hsla(0, 0%, 100%, 0.15);
-  box-shadow: 0 0 2px white, 0 0 15px #134f9a;
-  text-shadow: 0 0 20px red, 0 0 20px red;
+  background-color: rgba(211, 87, 104, 0.75); /* mb-red-accent */
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  box-shadow: 0 0 10px rgba(19, 79, 154, 0.5); /* mb-blue-classic */
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   padding: 15px 60px 15px 60px;
   margin-bottom: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .select-button:hover,
 a.select-button:hover {
   color: aliceblue;
-  background-color: rgba(211, 87, 104, 0.9);
+  background: linear-gradient(
+    135deg,
+    rgba(211, 87, 104, 0.95),
+    rgba(138, 43, 226, 0.4)
+  ); /* violet hint */
+  box-shadow: 0 0 10px white, 0 0 25px #37b7ff;
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+.lumina-text {
+  text-shadow: 0 0 10px #37b7ff, 0 0 2px #ffffff;
 }
 .subtitle {
   color: #cadceb;
