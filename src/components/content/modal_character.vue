@@ -1,6 +1,6 @@
 <template>
   <div class="characters">
-    <div class="grid md:grid-cols-3 grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-3 grid-cols-1 gap-6">
       <div
         v-for="(value, key) in characters"
         :key="key"
