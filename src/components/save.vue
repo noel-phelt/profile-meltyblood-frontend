@@ -9,6 +9,16 @@
         <span>ハッシュタグつきでツイートする</span>
       </div>
     </button>
+    <button
+      v-if="isLoggedIn"
+      class="download md:w-6/12 w-full"
+      @click="$emit('save')"
+    >
+      プロフィールを保存する
+    </button>
+    <button v-else class="download md:w-6/12 w-full" @click="twitterLogin()">
+      ログインして保存できるようにする
+    </button>
     <div>
       <span class="system-text">
         プロフィールが完成したら、
@@ -28,8 +38,6 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-
 const serviceTag = "メルブラTLプロフィール";
 const gameTag = "MELTY BLOOD: TYPE LUMINA";
 export default {
@@ -37,6 +45,11 @@ export default {
     image: {
       type: String,
       default: "",
+    },
+  },
+  computed: {
+    isLoggedIn() {
+      return !!this.$fire.auth.currentUser;
     },
   },
   methods: {
@@ -55,6 +68,9 @@ export default {
     tweetProfile() {
       const url = `https://twitter.com/intent/tweet?text=%23${serviceTag}%0a${this.$config.siteURL}`;
       window.open(url);
+    },
+    twitterLogin() {
+      window.location.href = "/auth-redirect";
     },
   },
 };

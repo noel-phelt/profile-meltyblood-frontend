@@ -214,7 +214,7 @@
           :canvasDataSet="canvasDataSet"
           @resultImage="resultImage = $event"
         ></canvasArea>
-        <save :image="resultImage"></save>
+        <save :image="resultImage" @save="saveProfile"></save>
         <policy></policy>
       </div>
       <customFooter></customFooter>
@@ -265,6 +265,34 @@ export default {
     },
     openArrayModal(modalType, index) {
       this.$refs[modalType][index].openModal();
+    },
+    async saveProfile() {
+      // ユーザーのuidを取得
+      const user = this.$fire.auth.currentUser;
+      if (!user) {
+        alert("ログインが必要です。");
+        return;
+      }
+      try {
+        const payload = {
+          player_name: this.playerName,
+          main_character: this.character.id,
+          playtime_weekend: this.playTimeWeekend.id,
+          playtime_holiday: this.playTimeHoriday.id,
+          platform: this.platformList.map((p) => p.id),
+          communication_tool: this.communicationToolList.map((c) => c.id),
+          style: this.styleList.map((s) => s.id),
+          rank: this.rank.id,
+          history: this.history.id,
+        };
+        const response = await this.$axios.post("/profile", payload);
+        if (response.status === 200 || response.status === 201) {
+          alert("プロフィールを保存しました。");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("保存に失敗しました。");
+      }
     },
   },
   computed: {
