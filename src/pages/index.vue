@@ -41,13 +41,16 @@
           <div class="caption">
             <h3 class="single">メインキャラクター</h3>
             <button
-              class="select-button md:w-6/12 w-10/12"
+              class="select-button md:w-6/12 w-10/12 flex items-center justify-center space-x-4 mx-auto md:mx-0"
               type="button"
               @click="openModal('modalCharacter')"
             >
-              <span v-if="character.name">
-                {{ character.name }}
-              </span>
+              <template v-if="character.name">
+                <div class="selected-character-card">
+                  <img :src="character.img" class="selected-character-icon" />
+                </div>
+                <span>{{ character.name }}</span>
+              </template>
               <span v-else> キャラクターを選択する </span>
             </button>
             <modal
@@ -378,6 +381,31 @@ a.select-button:hover {
 .caption {
   margin-top: 20px;
   margin-bottom: 60px;
+}
+.selected-character-card {
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin-right: 0.5rem;
+}
+.selected-character-icon {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.8));
+}
+@media (max-width: 768px) {
+  .select-button {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 .title-logo {
   margin: 0 auto 30px auto;
