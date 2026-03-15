@@ -4,7 +4,7 @@ services:
   app:
     build: .
     volumes:
-      - ./src:/var/www:cached
+      - ./src:/var/www
       - node_modules:/var/www/node_modules
     working_dir: "/var/www"
     tty: true
@@ -17,6 +17,8 @@ services:
       - HOST=0.0.0.0
       - PORT=3000
       - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=500
+      - WATCHPACK_POLLING=true
       - API_DOMAIN="localhost:80"
       - STORAGE_URL=https://file.meltyblood-typelumina-fan.com
       - SITE_URL=https://profile.meltyblood-typelumina-fan.com
