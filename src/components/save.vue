@@ -29,6 +29,11 @@
         交流するきっかけになるかもしれません。
       </span>
     </div>
+    <p class="share-note">
+      共有URLのOGP画像は30日後に見られなくなります。
+      <br />
+      長く見られる形で投稿したい場合は、上の「画像をダウンロードする」から保存した画像を使って投稿してください。
+    </p>
     <p v-if="shareError" class="error-text">{{ shareError }}</p>
   </div>
 </template>
@@ -209,5 +214,13 @@ export default {
   font-family: "Noto Sans JP", serif;
   font-size: 16px;
   margin-top: 20px;
+}
+.share-note {
+  color: #d7e8ff;
+  font-family: "Noto Sans JP", serif;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 24px auto 0;
+  max-width: 760px;
 }
 </style>
