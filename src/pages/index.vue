@@ -53,6 +53,7 @@
             <modal
               ref="modalCharacter"
               modalType="modalCharacter"
+              :contentValue="character"
               @result="character = $event"
             ></modal>
           </div>

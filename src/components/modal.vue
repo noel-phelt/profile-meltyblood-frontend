@@ -1,24 +1,26 @@
 <template>
   <div>
     <div class="modal modal-overlay" @click.self="closeModal" v-show="modal">
-      <div class="modal modal-window md:w-9/12 w-11/12">
-        <component
-          class="modal content"
-          ref="modalContent"
-          :is="modalType"
-          :modalSet="modalSet"
-          :contentValue="contentValue"
-          :contentList="contentList"
-          @completeModal="completeModal($event)"
-        ></component>
-        <footer class="modal-footer">
-          <button class="close w-5/12 md:w-[150px]" @click="closeModal">
-            閉じる
-          </button>
-          <button class="clear w-5/12 md:w-[150px]" @click="clear">
-            未選択にする
-          </button>
-        </footer>
+      <div class="modal modal-window md:w-9/12 w-11/12 mx-auto">
+        <div class="modal-content-wrapper">
+          <component
+            class="modal-body"
+            ref="modalContent"
+            :is="modalType"
+            :modalSet="modalSet"
+            :contentValue="contentValue"
+            :contentList="contentList"
+            @completeModal="completeModal($event)"
+          ></component>
+          <footer class="modal-footer">
+            <button class="close w-5/12 md:w-[150px]" @click="closeModal">
+              閉じる
+            </button>
+            <button class="clear w-5/12 md:w-[150px]" @click="clear">
+              未選択にする
+            </button>
+          </footer>
+        </div>
       </div>
       <!-- </transition> -->
     </div>
@@ -40,7 +42,7 @@ export default {
       default: "",
     },
     contentValue: {
-      type: Number,
+      type: [Number, Object, Array, String, Boolean],
       default: null,
     },
     contentList: {
@@ -66,6 +68,15 @@ export default {
       modal: false,
     };
   },
+  watch: {
+    modal(val) {
+      if (val) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    },
+  },
   methods: {
     openModal() {
       this.modal = true;
@@ -76,6 +87,7 @@ export default {
     },
     clear() {
       this.$refs.modalContent.clearContent();
+      this.$refs.modalContent.completeModal();
     },
 
     completeModal(result) {
@@ -120,17 +132,34 @@ export default {
 .modal-window {
   background: rgba(0, 4, 59, 0.9);
   margin: auto;
+  width: min(1000px, calc(100vw - 2rem));
   max-width: 1000px;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
+  box-sizing: border-box;
   /* opacity: 0; */
   transition: opacity 0.5s, transform 0s 0.5s;
   /* transform: scale(0); */
+  display: flex;
+  flex-direction: column;
 }
-.modal.content {
-  margin: 20px 10px 10px 20px;
-  padding: 40px;
-  max-height: calc(100vh - 300px);
+.modal-content-wrapper {
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+.modal-body {
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.modal-footer {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
 }
 
 .modal-enter {
@@ -155,10 +184,6 @@ export default {
   transition: opacity 300ms ease-in, transform 270ms ease-in;
 }
 
-.modal-footer {
-  padding: 10px;
-}
-
 footer button {
   display: block;
   border: 1px solid hsla(0, 0%, 100%, 0.2);
@@ -166,7 +191,7 @@ footer button {
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
   color: aliceblue;
   padding: 10px 0px 10px 0px;
-  margin: 10px 20px 10px auto;
+  margin: 0;
   font-family: "Noto Serif JP", serif;
   transition: all 0.3s ease;
 }
