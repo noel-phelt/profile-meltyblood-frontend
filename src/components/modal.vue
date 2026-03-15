@@ -42,7 +42,7 @@ export default {
       default: "",
     },
     contentValue: {
-      type: Number,
+      type: [Number, Object, Array, String, Boolean],
       default: null,
     },
     contentList: {
@@ -87,6 +87,7 @@ export default {
     },
     clear() {
       this.$refs.modalContent.clearContent();
+      this.$refs.modalContent.completeModal();
     },
 
     completeModal(result) {
@@ -131,8 +132,10 @@ export default {
 .modal-window {
   background: rgba(0, 4, 59, 0.9);
   margin: auto;
+  width: min(1000px, calc(100vw - 2rem));
   max-width: 1000px;
   border: 1px solid hsla(0, 0%, 100%, 0.15);
+  box-sizing: border-box;
   /* opacity: 0; */
   transition: opacity 0.5s, transform 0s 0.5s;
   /* transform: scale(0); */
@@ -142,9 +145,12 @@ export default {
 .modal-content-wrapper {
   max-height: calc(100vh - 100px);
   overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 .modal-body {
   padding: 40px;
+  box-sizing: border-box;
 }
 
 .modal-footer {
@@ -153,6 +159,7 @@ export default {
   justify-content: flex-end;
   gap: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
 }
 
 .modal-enter {
