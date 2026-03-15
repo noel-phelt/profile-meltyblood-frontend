@@ -215,7 +215,7 @@
           :canvasDataSet="canvasDataSet"
           @resultImage="resultImage = $event"
         ></canvasArea>
-        <save :image="resultImage"></save>
+        <save :image="resultImage" :shareData="shareData"></save>
         <policy></policy>
       </div>
       <customFooter></customFooter>
@@ -269,6 +269,25 @@ export default {
     },
   },
   computed: {
+    shareData: function () {
+      return {
+        player_name: this.playerName || null,
+        main_character: this.character.id || null,
+        communication_tool: this.communicationToolList.length
+          ? this.communicationToolList.map((item) => item.id)
+          : null,
+        play_hard: this.platformList.length
+          ? this.platformList.map((item) => item.id)
+          : null,
+        playtime_weekend: this.playTimeWeekend.id || null,
+        playtime_holiday: this.playTimeHoriday.id || null,
+        style1: this.styleList[0].id || null,
+        style2: this.styleList[1].id || null,
+        style3: this.styleList[2].id || null,
+        rank: this.rank.id || null,
+        history: this.history.id || null,
+      };
+    },
     canvasDataSet: function () {
       const canvasDataSet = {
         playerName: this.playerName,
