@@ -19,9 +19,10 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - CHOKIDAR_INTERVAL=500
       - WATCHPACK_POLLING=true
-      - API_DOMAIN="localhost:80"
+      - API_URL=http://host.docker.internal:8081
+      - BROWSER_API_URL=http://localhost:8081
       - STORAGE_URL=https://file.meltyblood-typelumina-fan.com
-      - SITE_URL=https://profile.meltyblood-typelumina-fan.com
+      - SITE_URL=http://localhost:3000
       - SITE_OGP_IMAGE=https://file.meltyblood-typelumina-fan.com/site_image/ogp.jpeg
     networks:
       - nuxt

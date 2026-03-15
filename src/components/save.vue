@@ -3,10 +3,14 @@
     <button class="download md:w-6/12 w-full" @click="openImageLink()">
       画像をダウンロードする
     </button>
-    <button class="twitter md:w-6/12 w-full" @click="tweetProfile()">
+    <button
+      class="twitter md:w-6/12 w-full"
+      :disabled="isSubmitting || !image"
+      @click="tweetProfile()"
+    >
       <div class="twitter-content">
         <img class="logo" :src="`${$staticURL}icon/Twitter_white.png`" />
-        <span>ハッシュタグつきでツイートする</span>
+        <span>{{ twitterButtonLabel }}</span>
       </div>
     </button>
     <div>
@@ -17,26 +21,44 @@
           >#メルブラTLプロフィール</span
         >と
         <br class="md:hidden" />
-        一緒に画像を添付して共有しましょう 。
+        共有URLつきでポストしましょう 。
         <br />
-        （画像を別途添付しないとツイートには含まれません）
+        （OGP画像として表示されるまで少し時間がかかる場合があります）
         <br />あなたに興味を持ったプレイヤーと
         <br class="md:hidden" />
         交流するきっかけになるかもしれません。
       </span>
     </div>
+    <p v-if="shareError" class="error-text">{{ shareError }}</p>
   </div>
 </template>
 <script>
-import axios from "axios";
-
 const serviceTag = "メルブラTLプロフィール";
-const gameTag = "MELTY BLOOD: TYPE LUMINA";
+
 export default {
   props: {
     image: {
       type: String,
       default: "",
+    },
+    shareData: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+  data() {
+    return {
+      isSubmitting: false,
+      shareError: "",
+      shareUrl: "",
+    };
+  },
+  computed: {
+    twitterButtonLabel() {
+      if (this.isSubmitting) {
+        return "共有URLを発行中...";
+      }
+      return "ハッシュタグつきでツイートする";
     },
   },
   methods: {
@@ -52,9 +74,70 @@ export default {
       const win = window.open("about:blank");
       win.document.write(winHtml);
     },
-    tweetProfile() {
-      const url = `https://twitter.com/intent/tweet?text=%23${serviceTag}%0a${this.$config.siteURL}`;
-      window.open(url);
+    async tweetProfile() {
+      this.shareError = "";
+      if (!this.image) {
+        this.shareError = "先にカード画像を生成してください。";
+        return;
+      }
+
+      try {
+        this.isSubmitting = true;
+        const shareUrl = this.shareUrl || (await this.createShare());
+        const tweetText = `#${serviceTag}`;
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+          tweetText
+        )}&url=${encodeURIComponent(shareUrl)}`;
+        window.open(url, "_blank");
+      } catch (error) {
+        const detail =
+          error &&
+          error.response &&
+          error.response.data &&
+          error.response.data.detail
+            ? error.response.data.detail
+            : "共有URLの発行に失敗しました。時間をおいて再度お試しください。";
+        this.shareError = detail;
+      } finally {
+        this.isSubmitting = false;
+      }
+    },
+    async createShare() {
+      const formData = new FormData();
+      const imageBlob = await this.dataUrlToBlob(this.image);
+      formData.append("image", imageBlob, "profile-card.png");
+
+      Object.entries(this.shareData).forEach(([key, value]) => {
+        if (value === null || value === undefined || value === "") {
+          return;
+        }
+        if (Array.isArray(value)) {
+          value.forEach((item) => formData.append(key, item));
+          return;
+        }
+        formData.append(key, value);
+      });
+
+      const response = await this.$axios.$post("/shares", formData);
+      this.shareUrl = response.share_url || `${this.$config.siteURL}/share/${response.share_id}`;
+      return this.shareUrl;
+    },
+    async dataUrlToBlob(dataUrl) {
+      const response = await fetch(dataUrl);
+      return await response.blob();
+    },
+  },
+  watch: {
+    image() {
+      this.shareUrl = "";
+      this.shareError = "";
+    },
+    shareData: {
+      handler() {
+        this.shareUrl = "";
+        this.shareError = "";
+      },
+      deep: true,
     },
   },
 };
@@ -91,6 +174,10 @@ export default {
   border: 1px solid hsla(0, 0%, 100%, 0.15);
   box-shadow: 0 0 2px white, 0 0 15px #134f9a;
 }
+.twitter:disabled {
+  cursor: progress;
+  opacity: 0.8;
+}
 .twitter-content {
   display: flex;
   margin: 0 5% 0 5%;
@@ -113,5 +200,14 @@ export default {
 }
 .twitter:hover {
   background: rgba(29, 161, 242, 0.9);
+}
+.twitter:disabled:hover {
+  background: rgba(29, 161, 242, 0.6);
+}
+.error-text {
+  color: #ffb4b4;
+  font-family: "Noto Sans JP", serif;
+  font-size: 16px;
+  margin-top: 20px;
 }
 </style>
