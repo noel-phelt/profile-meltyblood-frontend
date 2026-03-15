@@ -13,6 +13,7 @@
         <span>{{ twitterButtonLabel }}</span>
       </div>
     </button>
+    <p v-if="shareStatusText" class="share-status">{{ shareStatusText }}</p>
     <div>
       <span class="system-text">
         プロフィールが完成したら、
@@ -63,7 +64,19 @@ export default {
       if (this.isSubmitting) {
         return "共有URLを発行中...";
       }
-      return "ハッシュタグつきでツイートする";
+      if (this.shareUrl) {
+        return "共有URLつきでツイートする";
+      }
+      return "共有URLを発行してツイートする";
+    },
+    shareStatusText() {
+      if (this.isSubmitting) {
+        return "共有URLを発行しています。完了後にXの投稿画面が開きます。";
+      }
+      if (this.shareUrl) {
+        return "共有URLを発行済みです。内容を変えない限り、次回も同じURLで投稿できます。";
+      }
+      return "最初の1回だけ共有URLを発行します。";
     },
   },
   methods: {
@@ -221,6 +234,14 @@ export default {
   font-size: 15px;
   line-height: 1.8;
   margin: 24px auto 0;
+  max-width: 760px;
+}
+.share-status {
+  color: #c8f6ff;
+  font-family: "Noto Sans JP", serif;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: -20px auto 24px;
   max-width: 760px;
 }
 </style>
